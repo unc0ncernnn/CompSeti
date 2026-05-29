@@ -1,0 +1,12 @@
+.txt1 {
+  letter-spacing: -1px;  
+}
+.txt2 {
+    letter-spacing: 1px;
+}
+.txt3 {
+    word-spacing: -1px;
+}
+.txt4 {
+    word-spacing: 1px;
+}
