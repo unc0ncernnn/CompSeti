@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <input type="number" id="priceInput" placeholder="Стоимость товара">
+    <input type="number" id="ageInput" placeholder="Возраст покупателя">
+    <button onclick="handleCalculate()">Рассчитать</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateDiscountPrice(price, age) {
+            let discount = 0;
+
+            if (age < 18) {
+                discount = 10;
+            } else if (age >= 60) {
+                discount = 20;
+            }
+
+            return price - (price * discount / 100);
+        }
+
+        function handleCalculate() {
+            const priceVal = document.getElementById('priceInput').value;
+            const ageVal = document.getElementById('ageInput').value;
+            const resultParagraph = document.getElementById('result');
+
+            if (priceVal === '' || ageVal === '') {
+                resultParagraph.textContent = 'Ошибка: заполните все поля!';
+                return;
+            }
+
+            const price = Number(priceVal);
+            const age = Number(ageVal);
+
+            const finalPrice = calculateDiscountPrice(price, age);
+            resultParagraph.textContent = 'Итоговая цена: ' + finalPrice + ' рублей';
+        }
+    </script>
+
+</body>
+</html>

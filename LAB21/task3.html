@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <input type="tel" id="phoneInput" placeholder="Номер телефона">
+    <button onclick="checkPhone()">Проверить номер</button>
+    <p id="result"></p>
+
+    <script>
+        function checkPhone() {
+            const input = document.getElementById('phoneInput');
+            const resultParagraph = document.getElementById('result');
+            const phoneNumber = input.value.trim();
+
+            if (phoneNumber === '') {
+                resultParagraph.textContent = 'Ошибка: номер не может быть пустым';
+                resultParagraph.style.color = 'red';
+                return;
+            }
+
+            let cleanedNumber = phoneNumber;
+            let hasPlus = false;
+
+            if (cleanedNumber[0] === "+") {
+                hasPlus = true;
+                cleanedNumber = cleanedNumber.slice(1);
+            }
+
+            for (let i = 0; i < cleanedNumber.length; i++) {
+                if (cleanedNumber[i] < "0" || cleanedNumber[i] > "9") {
+                    resultParagraph.textContent = 'Ошибка: номер должен содержать только цифры (и плюс в начале)';
+                    resultParagraph.style.color = 'red';
+                    return;
+                }
+            }
+
+            const originalLength = phoneNumber.length;
+
+            const isFormat1 = hasPlus && phoneNumber[1] === '7' && originalLength === 12;
+            const isFormat2 = !hasPlus && phoneNumber[0] === '8' && originalLength === 11;
+            const isFormat3 = !hasPlus && originalLength === 10;
+
+            if (isFormat1 || isFormat2 || isFormat3) {
+                resultParagraph.textContent = 'Номер телефона верный';
+                resultParagraph.style.color = 'green';
+            } else {
+                resultParagraph.textContent = 'Ошибка: длина или формат номера не соответствуют российским стандартам';
+                resultParagraph.style.color = 'red';
+            }
+        }
+    </script>
+
+</body>
+</html>

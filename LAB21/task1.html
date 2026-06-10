@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <input type="number" id="numberInput" placeholder="Введите число">
+    <button onclick="checkNumber()">Проверить</button>
+    <p id="result"></p>
+
+    <script>
+        function checkNumber() {
+            const input = document.getElementById('numberInput');
+            const resultParagraph = document.getElementById('result');
+            const value = input.value;
+
+            if (value === '') {
+                resultParagraph.textContent = 'Введите число';
+                return;
+            }
+
+            const number = Number(value);
+
+            if (number % 2 === 0) {
+                resultParagraph.textContent = 'Чётное';
+            } else {
+                resultParagraph.textContent = 'Нечётное';
+            }
+        }
+    </script>
+
+</body>
+</html>
