@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <input type="number" id="num1" placeholder="Первое число">
+    <input type="number" id="num2" placeholder="Второе число">
+    <button id="calcBtn">Сложить</button>
+    <p id="result"></p>
+
+    <script>
+        const input1 = document.querySelector('#num1');
+        const input2 = document.querySelector('#num2');
+        const button = document.querySelector('#calcBtn');
+        const output = document.querySelector('#result');
+
+        button.onclick = function() {
+            const value1 = Number(input1.value);
+            const value2 = Number(input2.value);
+
+            const sum = value1 + value2;
+
+            output.textContent = `Сумма = ${sum}`;
+        };
+    </script>
+</body>
+</html>

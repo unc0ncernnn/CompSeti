@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <button id="Button">Нажми на меня</button>
+    <p id="Paragraph">Исходный текст абзаца.</p>
+
+    <script>
+        let button = document.querySelector('#Button');
+        let paragraph = document.querySelector('#Paragraph');
+
+        button.onclick = function() {
+            paragraph.textContent = 'Клик сработал!';
+            paragraph.style.color = 'blue';
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <center><button id="bgBtn">Случайный фон</button></center>
+
+    <script>
+        const button = document.querySelector('#bgBtn');
+
+        button.onclick = function() {
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+            document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+        };
+    </script>
+
+</body>
+</html>
